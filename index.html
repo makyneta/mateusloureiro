@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mateus Loureiro | 3D Digital Designer Portfolio</title>
+    <meta property="og:title" content="Mateus Loureiro">
+    <meta name="description" content="bem-vindo/a ao portfólio de Mateus Loureiro, Designer Digital 3D. Explore trabalhos em destaque, o projeto de aptidão profissional (PAP) e saiba mais sobre as suas competências técnicas.">
+    <link rel="icon" href="mateus.jpg" type="image/jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#1a1a2e', // Azul escuro principal (Fundo)
+                        'secondary-blue': '#41a1c9', // Azul ciano/claro profissional (Destaque)
+                        'text-light': '#ffffff',
+                        'card-bg': '#2c2c4d', // Fundo de card/secção mais escuro
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para rolar suavemente e remover margens */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            /* Fundo ligeiramente mais rico */
+            background-color: #1a1a2e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+        /* Efeito de hover no link de navegação usando a nova cor de destaque */
+        .nav-link:hover {
+            color: #41a1c9;
+            transition: color 0.3s ease;
+        }
+        /* Efeito de destaque subtil para os cards, que reforça o profissionalismo */
+        .project-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(65, 161, 201, 0.3), 0 4px 6px -2px rgba(65, 161, 201, 0.2);
+        }
+
+    /* KEYFRAMES E ANIMAÇÕES PARA A SECÇÃO HERO */
+
+    /* Animação de entrada suave de cima para baixo */
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-down {
+        animation: fadeInDown 0.6s ease-out forwards;
+        opacity: 0; /* Começa invisível */
+    }
+
+    /* Animação de entrada suave de baixo para cima */
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0; /* Começa invisível */
+    }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
+
+    /* Rotação lenta para o ícone 3D */
+    @keyframes spinSlow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+        animation: spinSlow 30s linear infinite; /* 30 segundos, rotação infinita */
+    }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- BARRA DE NAVEGAÇÃO FIXA -->
+    <header class="sticky top-0 z-40 bg-primary-dark/95 backdrop-blur-sm shadow-xl border-b border-card-bg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logótipo/Nome -->
+            <a href="#home" class="text-2xl font-bold text-secondary-blue hover:text-white transition duration-300">Mateus Loureiro</a>
+
+            <!-- Links de Navegação (Desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-text-light font-medium">Início</a>
+                <a href="#portfolio" class="nav-link text-text-light font-medium">Portfólio</a>
+                <a href="#pap" class="nav-link text-text-light font-medium">PAP</a>
+                <a href="#sobre" class="nav-link text-text-light font-medium">Sobre</a>
+                <a href="#contacto" class="nav-link text-text-light font-medium">Contacto</a>
+            </div>
+
+            <!-- Botão do Menu (Mobile) -->
+            <button id="menu-button" class="md:hidden text-text-light focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Menu Dropdown (Mobile) -->
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-primary-dark border-t border-card-bg">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-text-light hover:bg-card-bg">Início</a>
+            <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-text-light hover:bg-card-bg">Portfólio</a>
+            <a href="#pap" class="block px-3 py-2 rounded-md text-base font-medium text-text-light hover:bg-card-bg">PAP</a>
+            <a href="#sobre" class="block px-3 py-2 rounded-md text-base font-medium text-text-light hover:bg-card-bg">Sobre</a>
+            <a href="#contacto" class="block px-3 py-2 rounded-md text-base font-medium text-text-light hover:bg-card-bg">Contacto</a>
+        </div>
+    </header>
+
+    <!-- SECÇÃO PRINCIPAL (HERO) - VISUAL PROFISSIONAL E FOCADO -->
+    <section id="home" class="min-h-screen flex items-center justify-center p-6 bg-primary-dark relative overflow-hidden">
+        
+        <!-- Elemento de Fundo Subtil de Grade/Efeitos 3D (apenas visual) -->
+        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+            <!-- NOTA: O 'background-image' usa um placeholder para simular um padrão de grade 3D -->
+            <div class="w-full h-full bg-[url('https://placehold.co/1000x1000/1a1a2e/41a1c9?text=ML3D')] bg-repeat" style="background-size: 50px 50px;"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto z-10 text-center space-y-8 py-20 md:py-32">
+            
+            <p class="text-lg sm:text-xl text-secondary-blue font-semibold tracking-widest uppercase animate-fade-in-down">
+                Portfólio Profissional de
+            </p>
+            
+            <h1 class="text-6xl sm:text-8xl lg:text-9xl font-extrabold leading-none text-white animate-fade-in-up">
+                Mateus Loureiro
+            </h1>
+            
+            <p class="text-2xl sm:text-4xl font-light text-gray-300 max-w-3xl mx-auto animate-fade-in-up delay-200">
+                Especialista em <span class="text-secondary-blue font-medium">Design Digital 3D</span> para soluções inovadoras.
+            </p>
+            
+            <a href="#portfolio" class="inline-block px-10 py-4 mt-8 text-xl font-bold text-white bg-secondary-blue rounded-lg shadow-2xl shadow-secondary-blue/50 hover:bg-cyan-600 transition duration-300 transform hover:scale-105 hover:shadow-secondary-blue/70 animate-fade-in-up delay-400">
+                Ver Projetos em Destaque &rarr;
+            </a>
+            
+            <!-- Ícone 3D Flutuante e Animado -->
+            <div class="mt-16 flex justify-center animate-spin-slow">
+                <span class="inline-block text-[8rem] text-secondary-blue opacity-90 transition duration-500 hover:opacity-100" aria-label="Ícone de cubo 3D">
+                    <!-- SVG do Cubo 3D -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" class="w-24 h-24 lg:w-32 lg:h-32">
+                        <path d="M12 2l10 5.5v11L12 22 2 17.5V6.5L12 2zM2 6.5l10 5.5L22 6.5M12 22v-9.5M12 2v9.5"/>
+                    </svg>
+                </span>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- SECÇÃO PORTFÓLIO -->
+    <section id="portfolio" class="py-20 bg-primary-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary-blue border-b-2 border-secondary-blue inline-block pb-1">Trabalhos em Destaque</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <div class="project-card bg-card-bg rounded-xl shadow-2xl overflow-hidden hover:scale-[1.02] transition duration-300">
+                    <img src="https://placehold.co/600x400/2c2c4d/41a1c9?text=Alerno" alt="Imagem do Projeto 1" class="w-full h-56 object-cover border-b-4 border-secondary-blue">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Alerno</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Criação de uma modelação em 3D, e de um <i>website</i> para a instituição Alerno.</p>
+                        <span class="inline-block bg-secondary-blue/20 text-secondary-blue text-xs px-3 py-1 rounded-full font-medium">Bentley</span>
+                        <span class="inline-block bg-secondary-blue/20 text-secondary-blue text-xs px-3 py-1 rounded-full font-medium ml-2">Notepad</span>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE VÍDEO PAP (Projeto de Aptidão Profissional) -->
+    <section id="pap" class="py-20 bg-card-bg border-t border-b border-primary-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-secondary-blue border-b-2 border-secondary-blue inline-block pb-1">PAP - Apresentação do Projeto Final</h2>
+            <p class="text-gray-300 mb-10 text-lg max-w-3xl mx-auto">O Projeto de Aptidão Profissional representa o culminar da formação do Mateus. Veja o vídeo abaixo para conhecer em detalhe o conceito e a execução técnica.</p>
+
+            <!-- YouTube Video Embed - REQUER A SUBSTITUIÇÃO DO ID DO VÍDEO -->
+            <div class="relative w-full max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden ring-4 ring-secondary-blue/50" style="padding-bottom: 56.25%;">
+                <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/bfFKg3PmvV4" 
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="Vídeo de Apresentação da PAP - Mateus Loureiro">
+                </iframe>
+            </div>
+            <p class="mt-4 text-secondary-blue/80 italic text-sm font-semibold">
+                Projeto de Aptidão Profissional - Mateus Loureiro
+            </p>
+        </div>
+    </section>
+
+<section id="sobre" class="py-20 bg-primary-dark border-b border-card-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-secondary-blue border-b-2 border-secondary-blue inline-block pb-1">Sobre o Designer</h2>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Coluna 1: Foto e Bio -->
+                <div class="lg:w-1/2 space-y-8">
+                    
+                    <!-- ESPAÇO PARA FOTOGRAFIA -->
+                    <div class="flex flex-col items-center sm:flex-row sm:items-start sm:space-x-8">
+                        <div class="flex-shrink-0 mb-4 sm:mb-0">
+                            <!-- A sua imagem deve ser um URL acessível ou um nome de ficheiro como 'mateus_perfil.jpg' -->
+                            <img src="mateus.jpg" 
+                                 alt="Fotografia de Mateus Loureiro" 
+                                 class="w-36 h-36 rounded-full object-cover border-4 border-secondary-blue shadow-lg">
+                        </div>
+                        
+                        <div class="space-y-4 text-center sm:text-left">
+                            <h3 class="text-3xl font-semibold text-white">Mateus Loureiro</h3>
+                            <p class="text-gray-300 leading-relaxed text-sm">
+                                Designer Digital 3D recém-formado e motivado, com uma forte base técnica na criação de assets para instituições.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed font-medium text-secondary-blue">
+                                Pronto para aplicar habilidades técnicas em projetos inovadores.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Bio Detalhada -->
+                    <h4 class="text-2xl font-semibold mb-2 text-white border-b border-card-bg pb-2 pt-4">Trajetória e Visão</h4>
+                    <p class="text-gray-300 leading-relaxed">
+                        A sua paixão reside em transformar ideias complexas em experiências visuais tangíveis e otimizadas.
+                    </p>
+                    <!-- <p class="text-gray-300 leading-relaxed">
+                        A sua especialização abrange Modelação Hard Surface detalhada, escultura digital orgânica e o pipeline completo de texturização PBR, essencial para a indústria de jogos (Game-Ready Assets) e visualização arquitetónica ou de produto. O seu foco é a precisão e a eficiência do workflow.
+                    </p> -->
+                    
+                </div>
+
+                <!-- Coluna 2: Skills -->
+                <div class="lg:w-1/2">
+                    <h3 class="text-3xl font-semibold mb-4 text-white">Ferramentas & Competências</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Skill Item -->
+                        <div class="bg-card-bg p-4 rounded-lg shadow-xl hover:shadow-secondary-blue/30 transition duration-300">
+                            <h4 class="font-bold text-secondary-blue">Modelação 3D</h4>
+                            <p class="text-gray-400 text-sm">Blentley</p>
+                        </div>
+                        <!-- Skill Item -->
+                        <div class="bg-card-bg p-4 rounded-lg shadow-xl hover:shadow-secondary-blue/30 transition duration-300">
+                            <h4 class="font-bold text-secondary-blue">Criação de <i>websites</i></h4>
+                            <p class="text-gray-400 text-sm">Notepad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECÇÃO DE CONTACTO -->
+    <section id="contacto" class="py-20 bg-card-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-6 text-secondary-blue border-b-2 border-secondary-blue inline-block pb-1">Vamos Começar o Seu Próximo Projeto</h2>
+            <p class="text-gray-300 mb-10 text-lg">Contacte diretamente para discutir colaborações, oportunidades de trabalho ou projetos específicos.</p>
+
+            <div class="max-w-xl mx-auto p-8 bg-primary-dark rounded-xl shadow-2xl ring-2 ring-secondary-blue/40">
+                <form id="contact-form" action="https://formspree.io/f/mldppwea" method="POST" class="space-y-6">
+                    <div>
+                        <input type="text" id="name" name="mateusloureiro_name" placeholder="O Seu Nome" required 
+                               class="w-full px-4 py-3 rounded-lg bg-card-bg border border-card-bg focus:border-secondary-blue focus:ring-2 focus:ring-secondary-blue/50 text-white placeholder-gray-500 transition duration-200">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="mateusloureiro_email" placeholder="O Seu Email Profissional" required 
+                               class="w-full px-4 py-3 rounded-lg bg-card-bg border border-card-bg focus:border-secondary-blue focus:ring-2 focus:ring-secondary-blue/50 text-white placeholder-gray-500 transition duration-200">
+                    </div>
+                    <div>
+                        <input type="text" id="subject" name="subject" placeholder="Assunto" required 
+                               class="w-full px-4 py-3 rounded-lg bg-card-bg border border-card-bg focus:border-secondary-blue focus:ring-2 focus:ring-secondary-blue/50 text-white placeholder-gray-500 transition duration-200">
+                    </div>
+                    <div>
+                        <textarea id="message" name="mateusloureiro_message" rows="4" placeholder="Detalhes do Projeto ou Mensagem" required 
+                                  class="w-full px-4 py-3 rounded-lg bg-card-bg border border-card-bg focus:border-secondary-blue focus:ring-2 focus:ring-secondary-blue/50 text-white placeholder-gray-500 transition duration-200"></textarea>
+                    </div>
+                    <button type="submit" 
+                            class="w-full px-6 py-3 text-lg font-bold text-white bg-secondary-blue rounded-lg shadow-xl hover:bg-cyan-600 transition duration-300 transform hover:scale-[1.01]">
+                        Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary-dark py-6 border-t border-secondary-blue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm hover:text-white transition duration-300 hover:underline">
+            <a href="https://makyneta.github.io"><p>&copy; 2025 Tomás Mota Studios. Todos os direitos reservados.</p></a>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // 1. Alternar Menu Mobile
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // 2. Fechar Menu Mobile ao clicar num link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+                // Resetar o botão após 3 segundos
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('bg-green-600');
+                    submitButton.classList.add('bg-secondary-blue', 'hover:bg-cyan-600');
+                    contactForm.reset();
+                }, 3000);
+            });
+    </script>
+
+</body>
+</html>
