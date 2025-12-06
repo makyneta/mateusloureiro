@@ -296,11 +296,20 @@
     <!-- FOOTER -->
     <footer class="bg-primary-dark py-6 border-t border-secondary-blue/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm hover:text-white transition duration-300 hover:underline">
-            <a href="https://makyneta.github.io"><p>&copy; 2025 Tomás Mota Studios. Todos os direitos reservados.</p></a>
+            <a href="https://makyneta.github.io"><p> Copyright &copy; <span id="current-year"></span> Tomás Mota Studios. Todos os direitos reservados.</p></a>
         </div>
     </footer>
 
     <!-- LÓGICA JAVASCRIPT -->
+
+    <script>
+            const yearSpan = document.getElementById('current-year');
+            if (yearSpan) {
+                const currentYear = new Date().getFullYear();
+                yearSpan.textContent = currentYear;
+            }
+    </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuButton = document.getElementById('menu-button');
